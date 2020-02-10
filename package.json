@@ -1,11 +1,23 @@
 {
   "name": "@toplast/lastfm",
   "version": "0.0.1",
-  "main": "index.js",
+  "description": "A typed Last.fm API client for Node.js",
+  "main": "./lib/lastfm.js",
+  "types": "./lib/lastfm.d.ts",
+  "files": [
+    "./lib/**/*"
+  ],
   "author": "Henrique de Castilhos <henriquedecastilhos@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "lint": "eslint 'src/**/*.ts'"
+    "build": "tsc",
+    "lint": "eslint 'src/**/*.ts'",
+    "lint:fix": "yarn lint --fix",
+    "prepare": "yarn build",
+    "prepublish": "yarn lint",
+    "preversion": "yarn lint",
+    "version": "yarn lint:fix && git add -A src",
+    "postversion": "git push && git push --tags"
   },
   "dependencies": {
     "axios": "^0.19.2"
