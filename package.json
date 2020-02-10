@@ -4,10 +4,16 @@
   "main": "index.js",
   "author": "Henrique de Castilhos <henriquedecastilhos@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "lint": "eslint 'src/**/*.ts'"
+  },
   "devDependencies": {
     "@types/eslint": "^6.1.7",
     "@types/jest": "^25.1.0",
     "@types/node": "^13.5.1",
+    "@typescript-eslint/eslint-plugin": "^2.18.0",
+    "@typescript-eslint/parser": "^2.18.0",
+    "axios": "^0.19.2",
     "eslint": "^6.8.0",
     "jest": "^25.1.0",
     "ts-jest": "^25.0.0",
