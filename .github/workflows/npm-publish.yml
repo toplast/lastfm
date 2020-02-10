@@ -1,4 +1,4 @@
-name: npm-publish
+name: Publish
 on:
   push:
     branches:
@@ -14,7 +14,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@master
         with:
-          node-version: 10.0.0
+          node-version: 13.8.0
       - name: Install dependencies
         run: yarn install
       - name: Run linter
