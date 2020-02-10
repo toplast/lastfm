@@ -102,3 +102,6 @@ dist/
 # Temporary folders
 tmp/
 temp/
+
+# Lib folder
+lib/
