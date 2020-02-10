@@ -1,11 +1,11 @@
 {
   "name": "@toplast/lastfm",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A typed Last.fm API client for Node.js",
-  "main": "./lib/lastfm.js",
-  "types": "./lib/lastfm.d.ts",
+  "main": "lib/lastfm.js",
+  "types": "lib/lastfm.d.ts",
   "files": [
-    "./lib/**/*"
+    "lib/**/*"
   ],
   "author": "Henrique de Castilhos <henriquedecastilhos@gmail.com>",
   "license": "MIT",
