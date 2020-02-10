@@ -19,9 +19,7 @@ $ yarn add @toplast/lastfm
 ## Example
 
 ``` javascript
-const {
-    LastFm
-} = require("@toplast/lastfm");
+const { LastFm } = require("@toplast/lastfm");
 
 const lastFm = new LastFm("API_KEY");
 
