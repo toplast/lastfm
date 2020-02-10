@@ -33,5 +33,12 @@
     "ts-jest": "^25.0.0",
     "ts-node": "^8.6.2",
     "typescript": "^3.7.5"
-  }
+  },
+  "keywords": [
+    "lastfm",
+    "last.fm",
+    "music",
+    "scrobble",
+    "toplast"
+  ]
 }
