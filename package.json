@@ -1,5 +1,5 @@
 {
-  "name": "lastfm",
+  "name": "@toplast/lastfm",
   "version": "0.0.1",
   "main": "index.js",
   "author": "Henrique de Castilhos <henriquedecastilhos@gmail.com>",
