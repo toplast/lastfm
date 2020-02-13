@@ -82,7 +82,7 @@ interface IDate {
   "#text": string;
 }
 
-interface IImage {
+export interface IImage {
   size: "small" | "medium" | "large" | "extralarge";
   "#text": string;
 }
