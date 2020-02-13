@@ -1,6 +1,6 @@
 {
   "name": "@toplast/lastfm",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "A typed Last.fm API client for Node.js",
   "keywords": [
     "lastfm",
