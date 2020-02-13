@@ -2,13 +2,33 @@
   "name": "@toplast/lastfm",
   "version": "0.0.6",
   "description": "A typed Last.fm API client for Node.js",
-  "main": "lib/lastfm.js",
-  "types": "lib/lastfm.d.ts",
+  "keywords": [
+    "lastfm",
+    "last.fm",
+    "music",
+    "scrobble",
+    "toplast"
+  ],
+  "homepage": "https://github.com/castilh0s/lastfm",
+  "bugs": {
+    "email": "henriquedecastilhos@gmail.com",
+    "url": "https://github.com/castilh0s/lastfm/issues"
+  },
+  "license": "MIT",
+  "author": {
+    "email": "henriquedecastilhos@gmail.com",
+    "name": "Henrique de Castilhos",
+    "url": "https://github.com/castilh0s"
+  },
   "files": [
     "lib/**/*"
   ],
-  "author": "Henrique de Castilhos <henriquedecastilhos@gmail.com>",
-  "license": "MIT",
+  "main": "lib/lastfm.js",
+  "types": "lib/lastfm.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/castilh0s/lastfm.git"
+  },
   "scripts": {
     "build": "tsc",
     "lint": "eslint 'src/**/*.ts'",
@@ -34,12 +54,5 @@
     "ts-jest": "^25.0.0",
     "ts-node": "^8.6.2",
     "typescript": "^3.7.5"
-  },
-  "keywords": [
-    "lastfm",
-    "last.fm",
-    "music",
-    "scrobble",
-    "toplast"
-  ]
+  }
 }
