@@ -39,7 +39,7 @@ export interface ITrack {
 }
 
 export interface IArtist {
-  image?: IImage;
+  image?: IImage[];
   mbid: string;
   name?: string;
   playcount?: string;
@@ -51,7 +51,7 @@ export interface IArtist {
 
 export interface IAlbum {
   artist?: IArtist;
-  image?: IImage;
+  image?: IImage[];
   mbid: string;
   name?: string;
   playcount?: string;
@@ -82,7 +82,7 @@ interface IDate {
   "#text": string;
 }
 
-interface IImage {
+export interface IImage {
   size: "small" | "medium" | "large" | "extralarge";
   "#text": string;
 }

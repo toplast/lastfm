@@ -17,7 +17,8 @@
     "prepublish": "yarn lint",
     "preversion": "yarn lint",
     "version": "yarn lint:fix && git add -A src",
-    "postversion": "git push && git push --tags"
+    "postversion": "git push && git push --tags",
+    "test": "echo 'implement tests, please'"
   },
   "dependencies": {
     "axios": "^0.19.2"
