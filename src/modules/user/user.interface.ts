@@ -1,55 +1,55 @@
 import { IAlbum, IArtist, IAttr, IChart, ITag, ITrack, IUser } from "../common/common.interface";
 import {
-  IGetFriendsParams,
-  IGetInfoParams,
-  IGetLovedTracksParams,
-  IGetPersonalTagsParams,
-  IGetRecentTracksParams,
-  IGetTopAlbumsParams,
-  IGetTopArtistsParams,
-  IGetTopTagsParams,
-  IGetTopTracksParams,
-  IGetWeeklyAlbumChartParams,
-  IGetWeeklyArtistChartParams,
-  IGetWeeklyChartListParams,
-  IGetWeeklyTrackChartParams
+  IUserGetFriendsParams,
+  IUserGetInfoParams,
+  IUserGetLovedTracksParams,
+  IUserGetPersonalTagsParams,
+  IUserGetRecentTracksParams,
+  IUserGetTopAlbumsParams,
+  IUserGetTopArtistsParams,
+  IUserGetTopTagsParams,
+  IUserGetTopTracksParams,
+  IUserGetWeeklyAlbumChartParams,
+  IUserGetWeeklyArtistChartParams,
+  IUserGetWeeklyChartListParams,
+  IUserGetWeeklyTrackChartParams
 } from "./params.interface";
 
 export interface IUserMethod {
-  getFriends(params: IGetFriendsParams): Promise<IGetFriends>;
-  getInfo(params: IGetInfoParams): Promise<IGetInfo>;
-  getLovedTracks(params: IGetLovedTracksParams): Promise<IGetLovedTracks>;
-  getPersonalTags(params: IGetPersonalTagsParams): Promise<IGetPersonalTags>;
-  getRecentTracks(params: IGetRecentTracksParams): Promise<IGetRecentTracks>;
-  getTopAlbums(params: IGetTopAlbumsParams): Promise<IGetTopAlbums>;
-  getTopArtists(params: IGetTopArtistsParams): Promise<IGetTopArtists>;
-  getTopTags(params: IGetTopTagsParams): Promise<IGetTopTags>;
-  getTopTracks(params: IGetTopTracksParams): Promise<IGetTopTracks>;
-  getWeeklyAlbumChart(params: IGetWeeklyAlbumChartParams): Promise<IGetWeeklyAlbumChart>;
-  getWeeklyArtistChart(params: IGetWeeklyArtistChartParams): Promise<IGetWeeklyArtistChart>;
-  getWeeklyChartList(params: IGetWeeklyChartListParams): Promise<IGetWeeklyChartList>;
-  getWeeklyTrackChart(params: IGetWeeklyTrackChartParams): Promise<IGetWeeklyTrackChart>;
+  getFriends(params: IUserGetFriendsParams): Promise<IUserGetFriends>;
+  getInfo(params: IUserGetInfoParams): Promise<IUserGetInfo>;
+  getLovedTracks(params: IUserGetLovedTracksParams): Promise<IUserGetLovedTracks>;
+  getPersonalTags(params: IUserGetPersonalTagsParams): Promise<IUserGetPersonalTags>;
+  getRecentTracks(params: IUserGetRecentTracksParams): Promise<IUserGetRecentTracks>;
+  getTopAlbums(params: IUserGetTopAlbumsParams): Promise<IUserGetTopAlbums>;
+  getTopArtists(params: IUserGetTopArtistsParams): Promise<IUserGetTopArtists>;
+  getTopTags(params: IUserGetTopTagsParams): Promise<IUserGetTopTags>;
+  getTopTracks(params: IUserGetTopTracksParams): Promise<IUserGetTopTracks>;
+  getWeeklyAlbumChart(params: IUserGetWeeklyAlbumChartParams): Promise<IUserGetWeeklyAlbumChart>;
+  getWeeklyArtistChart(params: IUserGetWeeklyArtistChartParams): Promise<IUserGetWeeklyArtistChart>;
+  getWeeklyChartList(params: IUserGetWeeklyChartListParams): Promise<IUserGetWeeklyChartList>;
+  getWeeklyTrackChart(params: IUserGetWeeklyTrackChartParams): Promise<IUserGetWeeklyTrackChart>;
 }
 
-export interface IGetFriends {
+export interface IUserGetFriends {
   friends: {
     user: IUser[];
     "@attr": IAttr;
   };
 }
 
-export interface IGetInfo {
+export interface IUserGetInfo {
   user: IUser;
 }
 
-export interface IGetLovedTracks {
+export interface IUserGetLovedTracks {
   lovedtracks: {
     track: ITrack[];
     "@attr": IAttr;
   };
 }
 
-export interface IGetPersonalTags {
+export interface IUserGetPersonalTags {
   taggings: {
     albums?: {
       album: IAlbum[];
@@ -64,63 +64,63 @@ export interface IGetPersonalTags {
   };
 }
 
-export interface IGetRecentTracks {
+export interface IUserGetRecentTracks {
   recenttracks: {
     track: ITrack[];
     "@attr": IAttr;
   };
 }
 
-export interface IGetTopAlbums {
+export interface IUserGetTopAlbums {
   topalbums: {
     album: IAlbum[];
     "@attr": IAttr;
   };
 }
 
-export interface IGetTopArtists {
+export interface IUserGetTopArtists {
   topartists: {
     artist: IArtist[];
     "@attr": IAttr;
   };
 }
 
-export interface IGetTopTags {
+export interface IUserGetTopTags {
   toptags: {
     tag: ITag[];
     "@attr": IAttr;
   };
 }
 
-export interface IGetTopTracks {
+export interface IUserGetTopTracks {
   toptracks: {
     track: ITrack[];
     "@attr": IAttr;
   };
 }
 
-export interface IGetWeeklyAlbumChart {
+export interface IUserGetWeeklyAlbumChart {
   weeklyalbumchart: {
     album: IAlbum[];
     "@attr": IAttr;
   };
 }
 
-export interface IGetWeeklyArtistChart {
+export interface IUserGetWeeklyArtistChart {
   weeklyartistchart: {
     artist: IArtist[];
     "@attr": IAttr;
   };
 }
 
-export interface IGetWeeklyChartList {
+export interface IUserGetWeeklyChartList {
   weeklychartlist: {
     chart: IChart[];
     "@attr": IAttr;
   };
 }
 
-export interface IGetWeeklyTrackChart {
+export interface IUserGetWeeklyTrackChart {
   weeklytrackchart: {
     track: ITrack[];
     "@attr": IAttr;

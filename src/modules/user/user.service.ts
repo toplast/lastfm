@@ -1,44 +1,44 @@
 /* eslint-disable @typescript-eslint/camelcase */
 import {
-  IGetFriends,
-  IGetInfo,
-  IGetLovedTracks,
-  IGetPersonalTags,
-  IGetRecentTracks,
-  IGetTopAlbums,
-  IGetTopArtists,
-  IGetTopTags,
-  IGetTopTracks,
-  IGetWeeklyAlbumChart,
-  IGetWeeklyArtistChart,
-  IGetWeeklyChartList,
-  IGetWeeklyTrackChart,
+  IUserGetFriends,
+  IUserGetInfo,
+  IUserGetLovedTracks,
+  IUserGetPersonalTags,
+  IUserGetRecentTracks,
+  IUserGetTopAlbums,
+  IUserGetTopArtists,
+  IUserGetTopTags,
+  IUserGetTopTracks,
+  IUserGetWeeklyAlbumChart,
+  IUserGetWeeklyArtistChart,
+  IUserGetWeeklyChartList,
+  IUserGetWeeklyTrackChart,
   IUserMethod
 } from "./user.interface";
 import {
-  IGetFriendsParams,
-  IGetInfoParams,
-  IGetLovedTracksParams,
-  IGetPersonalTagsParams,
-  IGetRecentTracksParams,
-  IGetTopAlbumsParams,
-  IGetTopArtistsParams,
-  IGetTopTagsParams,
-  IGetTopTracksParams,
-  IGetWeeklyAlbumChartParams,
-  IGetWeeklyArtistChartParams,
-  IGetWeeklyChartListParams,
-  IGetWeeklyTrackChartParams
+  IUserGetFriendsParams,
+  IUserGetInfoParams,
+  IUserGetLovedTracksParams,
+  IUserGetPersonalTagsParams,
+  IUserGetRecentTracksParams,
+  IUserGetTopAlbumsParams,
+  IUserGetTopArtistsParams,
+  IUserGetTopTagsParams,
+  IUserGetTopTracksParams,
+  IUserGetWeeklyAlbumChartParams,
+  IUserGetWeeklyArtistChartParams,
+  IUserGetWeeklyChartListParams,
+  IUserGetWeeklyTrackChartParams
 } from "./params.interface";
 import axios from "axios";
 
-type Params = IGetFriendsParams | IGetInfoParams | IGetLovedTracksParams | IGetPersonalTagsParams |
-IGetRecentTracksParams | IGetTopAlbumsParams | IGetTopArtistsParams | IGetTopTagsParams |
-IGetTopTracksParams | IGetWeeklyAlbumChartParams | IGetWeeklyArtistChartParams | IGetWeeklyChartListParams |
-IGetWeeklyTrackChartParams
-type Response = IGetFriends | IGetInfo | IGetLovedTracks | IGetPersonalTags | IGetRecentTracks |
-  IGetTopAlbums | IGetTopArtists | IGetTopTags | IGetTopTracks | IGetWeeklyAlbumChart |
-  IGetWeeklyArtistChart | IGetWeeklyChartList | IGetWeeklyTrackChart
+type Params = IUserGetFriendsParams | IUserGetInfoParams | IUserGetLovedTracksParams | IUserGetPersonalTagsParams |
+IUserGetRecentTracksParams | IUserGetTopAlbumsParams | IUserGetTopArtistsParams | IUserGetTopTagsParams |
+IUserGetTopTracksParams | IUserGetWeeklyAlbumChartParams | IUserGetWeeklyArtistChartParams |
+IUserGetWeeklyChartListParams | IUserGetWeeklyTrackChartParams
+type Response = IUserGetFriends | IUserGetInfo | IUserGetLovedTracks | IUserGetPersonalTags | IUserGetRecentTracks |
+  IUserGetTopAlbums | IUserGetTopArtists | IUserGetTopTags | IUserGetTopTracks | IUserGetWeeklyAlbumChart |
+  IUserGetWeeklyArtistChart | IUserGetWeeklyChartList | IUserGetWeeklyTrackChart
 
 export class User implements IUserMethod {
   private readonly BASE_URL: string
@@ -52,82 +52,82 @@ export class User implements IUserMethod {
     };
   }
 
-  public async getFriends(params: IGetFriendsParams): Promise<IGetFriends> {
+  public async getFriends(params: IUserGetFriendsParams): Promise<IUserGetFriends> {
     const data = await this.lastFmRequest(params, "getFriends");
 
-    return data as IGetFriends;
+    return data as IUserGetFriends;
   }
 
-  public async getInfo(params: IGetInfoParams): Promise<IGetInfo> {
+  public async getInfo(params: IUserGetInfoParams): Promise<IUserGetInfo> {
     const data = await this.lastFmRequest(params, "getInfo");
 
-    return data as IGetInfo;
+    return data as IUserGetInfo;
   }
 
-  public async getLovedTracks(params: IGetLovedTracksParams): Promise<IGetLovedTracks> {
+  public async getLovedTracks(params: IUserGetLovedTracksParams): Promise<IUserGetLovedTracks> {
     const data = await this.lastFmRequest(params, "getLovedTracks");
 
-    return data as IGetLovedTracks;
+    return data as IUserGetLovedTracks;
   }
 
-  public async getPersonalTags(params: IGetPersonalTagsParams): Promise<IGetPersonalTags> {
+  public async getPersonalTags(params: IUserGetPersonalTagsParams): Promise<IUserGetPersonalTags> {
     const data = await this.lastFmRequest(params, "getPersonalTags");
 
-    return data as IGetPersonalTags;
+    return data as IUserGetPersonalTags;
   }
 
-  public async getRecentTracks(params: IGetRecentTracksParams): Promise<IGetRecentTracks> {
+  public async getRecentTracks(params: IUserGetRecentTracksParams): Promise<IUserGetRecentTracks> {
     const data = await this.lastFmRequest(params, "getRecentTracks");
 
-    return data as IGetRecentTracks;
+    return data as IUserGetRecentTracks;
   }
 
-  public async getTopAlbums(params: IGetTopAlbumsParams): Promise<IGetTopAlbums> {
+  public async getTopAlbums(params: IUserGetTopAlbumsParams): Promise<IUserGetTopAlbums> {
     const data = await this.lastFmRequest(params, "getTopAlbums");
 
-    return data as IGetTopAlbums;
+    return data as IUserGetTopAlbums;
   }
 
-  public async getTopArtists(params: IGetTopArtistsParams): Promise<IGetTopArtists> {
+  public async getTopArtists(params: IUserGetTopArtistsParams): Promise<IUserGetTopArtists> {
     const data = await this.lastFmRequest(params, "getTopArtists");
 
-    return data as IGetTopArtists;
+    return data as IUserGetTopArtists;
   }
 
-  public async getTopTags(params: IGetTopTagsParams): Promise<IGetTopTags> {
+  public async getTopTags(params: IUserGetTopTagsParams): Promise<IUserGetTopTags> {
     const data = await this.lastFmRequest(params, "getTopTags");
 
-    return data as IGetTopTags;
+    return data as IUserGetTopTags;
   }
 
-  public async getTopTracks(params: IGetTopTracksParams): Promise<IGetTopTracks> {
+  public async getTopTracks(params: IUserGetTopTracksParams): Promise<IUserGetTopTracks> {
     const data = await this.lastFmRequest(params, "getTopTracks");
 
-    return data as IGetTopTracks;
+    return data as IUserGetTopTracks;
   }
 
-  public async getWeeklyAlbumChart(params: IGetWeeklyAlbumChartParams): Promise<IGetWeeklyAlbumChart> {
+  public async getWeeklyAlbumChart(params: IUserGetWeeklyAlbumChartParams): Promise<IUserGetWeeklyAlbumChart> {
     const data = await this.lastFmRequest(params, "getWeeklyAlbumChart");
 
-    return data as IGetWeeklyAlbumChart;
+    return data as IUserGetWeeklyAlbumChart;
   }
 
-  public async getWeeklyArtistChart(params: IGetWeeklyArtistChartParams): Promise<IGetWeeklyArtistChart> {
+  public async getWeeklyArtistChart(params: IUserGetWeeklyArtistChartParams): Promise<IUserGetWeeklyArtistChart> {
     const data = await this.lastFmRequest(params, "getWeeklyArtistChart");
 
-    return data as IGetWeeklyArtistChart;
+    return data as IUserGetWeeklyArtistChart;
   }
 
-  public async getWeeklyChartList(params: IGetWeeklyChartListParams): Promise<IGetWeeklyChartList> {
+  public async getWeeklyChartList(params: IUserGetWeeklyChartListParams): Promise<IUserGetWeeklyChartList> {
     const data = await this.lastFmRequest(params, "getWeeklyChartList");
 
-    return data as IGetWeeklyChartList;
+    return data as IUserGetWeeklyChartList;
   }
 
-  public async getWeeklyTrackChart(params: IGetWeeklyTrackChartParams): Promise<IGetWeeklyTrackChart> {
+  public async getWeeklyTrackChart(params: IUserGetWeeklyTrackChartParams): Promise<IUserGetWeeklyTrackChart> {
     const data = await this.lastFmRequest(params, "getWeeklyTrackChart");
 
-    return data as IGetWeeklyTrackChart;
+    return data as IUserGetWeeklyTrackChart;
   }
 
   private async lastFmRequest(params: Params, method: string): Promise<Response> {
