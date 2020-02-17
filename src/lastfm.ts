@@ -4,11 +4,16 @@ import { User } from "./modules/user/user.service";
 export class LastFm {
   public readonly user: User
   public readonly tag: Tag
-  private readonly BASE_URL = "http://ws.audioscrobbler.com/2.0";
+  private readonly API_KEY: string
 
   constructor(API_KEY: string) {
+    if (!API_KEY) {
+      throw new Error("API key has not set");
+    }
 
-    this.user = new User(this.BASE_URL, API_KEY);
-    this.tag = new Tag(this.BASE_URL, API_KEY);
+    this.API_KEY = API_KEY;
+
+    this.user = new User(this.API_KEY);
+    this.tag = new Tag(this.API_KEY);
   }
 }
