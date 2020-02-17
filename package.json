@@ -39,7 +39,8 @@
     "version": "yarn lint:fix && git add -A src",
     "postversion": "git push && git push --tags",
     "test": "jest .",
-    "test:coverage": "yarn test --collectCoverage"
+    "test:coverage": "yarn test --collectCoverage",
+    "test:watch": "yarn test --watch"
   },
   "dependencies": {
     "axios": "^0.19.2"
