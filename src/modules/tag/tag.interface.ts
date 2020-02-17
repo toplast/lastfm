@@ -6,7 +6,7 @@ import {
   ITagGetTopTracksParams,
   ITagGetWeeklyChartListParams
 } from "./params.interface";
-import { IImage } from "../common/common.interface";
+import { IImage } from "../../common/common.interface";
 
 export interface ITagMethod {
   getInfo(params: ITagGetInfoParams): Promise<ITagGetInfo>;

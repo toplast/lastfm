@@ -1,4 +1,4 @@
-import { IAlbum, IArtist, IAttr, IChart, ITag, ITrack, IUser } from "../common/common.interface";
+import { IAlbum, IArtist, IAttr, IChart, ITag, ITrack, IUser } from "../../common/common.interface";
 import {
   IUserGetFriendsParams,
   IUserGetInfoParams,
