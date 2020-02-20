@@ -68,6 +68,7 @@ describe("Tag tests", () => {
 
         expect(mockedAxios).toHaveBeenCalledWith("/2.0", {
           params: {
+            method: "tag.getTopAlbums",
             tag: "disco",
             limit: "5",
             page: 1,
@@ -81,6 +82,7 @@ describe("Tag tests", () => {
 
         expect(mockedAxios).toHaveBeenCalledWith("/2.0", {
           params: {
+            method: "tag.getTopArtists",
             tag: "disco",
             limit: "5",
             page: 1,
@@ -92,7 +94,12 @@ describe("Tag tests", () => {
       it("Should call getTopTags with the right params", async () => {
         await tagService.getTopTags();
 
-        expect(mockedAxios).toHaveBeenCalledWith("/2.0", { params: { ...defaultParams } });
+        expect(mockedAxios).toHaveBeenCalledWith("/2.0", {
+          params: {
+            method: "tag.getTopTags",
+            ...defaultParams
+          }
+        });
       });
 
       it("Should call getTopTracks with the right params", async () => {
@@ -100,6 +107,7 @@ describe("Tag tests", () => {
 
         expect(mockedAxios).toHaveBeenCalledWith("/2.0", {
           params: {
+            method: "tag.getTopTracks",
             tag: "disco",
             limit: "5",
             page: 1,
@@ -113,6 +121,7 @@ describe("Tag tests", () => {
 
         expect(mockedAxios).toHaveBeenCalledWith("/2.0", {
           params: {
+            method: "tag.getWeeklyChartList",
             tag: "disco",
             ...defaultParams
           }
