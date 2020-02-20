@@ -31,14 +31,14 @@ describe("Tag tests", () => {
       tagService = new Tag("SOME_NICE_API_KEY");
     });
 
-    beforeEach(() => {
-      mockedAxios.get.mockImplementationOnce(() => Promise.resolve({ data: {} }));
-    });
-
     describe("Params tests", () => {
       const defaultParams = { api_key: "SOME_NICE_API_KEY", format: "json" };
 
-      it("Should get tag information with the right params", async () => {
+      beforeEach(() => {
+        mockedAxios.get.mockImplementationOnce(() => Promise.resolve({ data: {} }));
+      });
+
+      it("Should call getInformation with the right params", async () => {
         await tagService.getInfo({ tag: "disco", lang: "pt" });
 
         expect(mockedAxios.get).toHaveBeenCalledWith("/2.0", {
@@ -51,7 +51,7 @@ describe("Tag tests", () => {
         });
       });
 
-      it("Should get similar tags with the right params", async () => {
+      it("Should call getSimilar with the right params", async () => {
         await tagService.getSimilar({ tag: "disco" });
 
         expect(mockedAxios.get).toHaveBeenCalledWith("/2.0", {
@@ -63,7 +63,7 @@ describe("Tag tests", () => {
         });
       });
 
-      it("Should get top albums by tag with the right params", async () => {
+      it("Should call getTopAlbums with the right params", async () => {
         await tagService.getTopAlbums({ tag: "disco", limit: "5", page: 1 });
 
         expect(mockedAxios).toHaveBeenCalledWith("/2.0", {
@@ -76,7 +76,7 @@ describe("Tag tests", () => {
         });
       });
 
-      it("Should get top artists by tag with the right params", async () => {
+      it("Should call getTopArtists with the right params", async () => {
         await tagService.getTopArtists({ tag: "disco", limit: "5", page: 1 });
 
         expect(mockedAxios).toHaveBeenCalledWith("/2.0", {
@@ -89,13 +89,13 @@ describe("Tag tests", () => {
         });
       });
 
-      it("Should get top tags with the right params", async () => {
+      it("Should call getTopTags with the right params", async () => {
         await tagService.getTopTags();
 
         expect(mockedAxios).toHaveBeenCalledWith("/2.0", { params: { ...defaultParams } });
       });
 
-      it("Should get top tracks by tag with the right params", async () => {
+      it("Should call getTopTracks with the right params", async () => {
         await tagService.getTopTracks({ tag: "disco", limit: "5", page: 1 });
 
         expect(mockedAxios).toHaveBeenCalledWith("/2.0", {
@@ -108,7 +108,7 @@ describe("Tag tests", () => {
         });
       });
 
-      it("Should get weekly tag chart list with the right params", async () => {
+      it("Should call getWeeklyChartList with the right params", async () => {
         await tagService.getWeeklyChartList({ tag: "disco" });
 
         expect(mockedAxios).toHaveBeenCalledWith("/2.0", {
