@@ -47,14 +47,14 @@ export interface IUserGetRecentTracksParams {
    * Beginning timestamp of a range - only display scrobbles after this time, in UNIX timestamp format
    * (integer number of seconds since 00:00:00, January 1st 1970 UTC).
    * This must be in the UTC time zone. */
-  from?: Date | string;
+  from?: number | string;
   /** Includes extended data in each artist, and whether or not the user has loved each track */
   extended?: 0 | 1;
   /**
    * End timestamp of a range - only display scrobbles before this time, in UNIX timestamp format
    * (integer number of seconds since 00:00:00, January 1st 1970 UTC).
    * This must be in the UTC time zone. */
-  to?: Date | string;
+  to?: number | string;
 }
 
 export interface IUserGetTopAlbumsParams {

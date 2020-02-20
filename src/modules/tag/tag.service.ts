@@ -17,72 +17,60 @@ import {
   ITagGetTopTracksParams,
   ITagGetWeeklyChartListParams
 } from "./params.interface";
-import axios from "axios";
-
-type Params = ITagGetInfoParams | ITagGetSimilarParams | ITagGetTopAlbumsParams |
-  ITagGetTopArtistsParams | ITagGetTopTracksParams | ITagGetWeeklyChartListParams
-type Response = ITagGetInfo | ITagGetSimilar | ITagGetTopAlbums | ITagGetTopArtists |
-  ITagGetTopTags | ITagGetTopTracks | ITagGetWeeklyChartList
+import { ApiRequest } from "../request/request.service";
 
 export class Tag implements ITagMethod {
-  private readonly BASE_URL: string
-  private readonly DEFAULT_PARAMS: { format: string; api_key: string }
+  private readonly API_KEY: string
+  private readonly REQUEST: ApiRequest
 
-  constructor(BASE_URL: string, API_KEY: string) {
-    this.BASE_URL = BASE_URL;
-    this.DEFAULT_PARAMS = {
-      api_key: API_KEY,
-      format: "json"
-    };
+  constructor(API_KEY: string) {
+    if (!API_KEY) {
+      throw new Error("API key has not set");
+    }
+
+    this.REQUEST = new ApiRequest();
+    this.API_KEY = API_KEY;
   }
 
   public async getInfo(params: ITagGetInfoParams): Promise<ITagGetInfo> {
-    const data = await this.lastFmRequest(params, "getInfo");
+    const data = await this.REQUEST.lastFm("tag.getInfo", this.API_KEY, params);
 
     return data as ITagGetInfo;
   }
 
   public async getSimilar(params: ITagGetSimilarParams): Promise<ITagGetSimilar> {
-    const data = await this.lastFmRequest(params, "getSimilar");
+    const data = await this.REQUEST.lastFm("tag.getSimilar", this.API_KEY, params);
 
     return data as ITagGetSimilar;
   }
 
   public async getTopAlbums(params: ITagGetTopAlbumsParams): Promise<ITagGetTopAlbums> {
-    const data = await this.lastFmRequest(params, "getTopAlbums");
+    const data = await this.REQUEST.lastFm("tag.getTopAlbums", this.API_KEY, params);
 
     return data as ITagGetTopAlbums;
   }
 
   public async getTopArtists(params: ITagGetTopArtistsParams): Promise<ITagGetTopArtists> {
-    const data = await this.lastFmRequest(params, "getTopArtists");
+    const data = await this.REQUEST.lastFm("tag.getTopArtists", this.API_KEY, params);
 
     return data as ITagGetTopArtists;
   }
 
   public async getTopTags(): Promise<ITagGetTopTags> {
-    const data = await this.lastFmRequest(undefined, "getTopTags");
+    const data = await this.REQUEST.lastFm("tag.getTopTags", this.API_KEY);
 
     return data as ITagGetTopTags;
   }
 
   public async getTopTracks(params: ITagGetTopTracksParams): Promise<ITagGetTopTracks> {
-    const data = await this.lastFmRequest(params, "getTopTracks");
+    const data = await this.REQUEST.lastFm("tag.getTopTracks", this.API_KEY, params);
 
     return data as ITagGetTopTracks;
   }
 
   public async getWeeklyChartList(params: ITagGetWeeklyChartListParams): Promise<ITagGetWeeklyChartList> {
-    const data = await this.lastFmRequest(params, "getWeeklyChartList");
+    const data = await this.REQUEST.lastFm("tag.getWeeklyChartList", this.API_KEY, params);
 
     return data as ITagGetWeeklyChartList;
-  }
-
-  private async lastFmRequest(params: Params, method: string): Promise<Response> {
-    const { data } = await axios.get(`${this.BASE_URL}/?method=tag.${method}`, {
-      params: { ...params, ...this.DEFAULT_PARAMS }
-    });
-
-    return data;
   }
 }

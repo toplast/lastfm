@@ -30,111 +30,96 @@ import {
   IUserGetWeeklyChartListParams,
   IUserGetWeeklyTrackChartParams
 } from "./params.interface";
-import axios from "axios";
-
-type Params = IUserGetFriendsParams | IUserGetInfoParams | IUserGetLovedTracksParams | IUserGetPersonalTagsParams |
-IUserGetRecentTracksParams | IUserGetTopAlbumsParams | IUserGetTopArtistsParams | IUserGetTopTagsParams |
-IUserGetTopTracksParams | IUserGetWeeklyAlbumChartParams | IUserGetWeeklyArtistChartParams |
-IUserGetWeeklyChartListParams | IUserGetWeeklyTrackChartParams
-type Response = IUserGetFriends | IUserGetInfo | IUserGetLovedTracks | IUserGetPersonalTags | IUserGetRecentTracks |
-  IUserGetTopAlbums | IUserGetTopArtists | IUserGetTopTags | IUserGetTopTracks | IUserGetWeeklyAlbumChart |
-  IUserGetWeeklyArtistChart | IUserGetWeeklyChartList | IUserGetWeeklyTrackChart
+import { ApiRequest } from "../request/request.service";
 
 export class User implements IUserMethod {
-  private readonly BASE_URL: string
-  private readonly DEFAULT_PARAMS: { format: string; api_key: string }
+  private readonly API_KEY: string
+  private readonly REQUEST: ApiRequest
 
-  constructor(BASE_URL: string, API_KEY: string) {
-    this.BASE_URL = BASE_URL;
-    this.DEFAULT_PARAMS = {
-      api_key: API_KEY,
-      format: "json"
-    };
+  constructor(API_KEY: string) {
+    if (!API_KEY) {
+      throw new Error("API key has not set");
+    }
+
+    this.REQUEST = new ApiRequest();
+    this.API_KEY = API_KEY;
   }
 
   public async getFriends(params: IUserGetFriendsParams): Promise<IUserGetFriends> {
-    const data = await this.lastFmRequest(params, "getFriends");
+    const data = await this.REQUEST.lastFm("user.getFriends", this.API_KEY, params);
 
     return data as IUserGetFriends;
   }
 
   public async getInfo(params: IUserGetInfoParams): Promise<IUserGetInfo> {
-    const data = await this.lastFmRequest(params, "getInfo");
+    const data = await this.REQUEST.lastFm("user.getInfo", this.API_KEY, params);
 
     return data as IUserGetInfo;
   }
 
   public async getLovedTracks(params: IUserGetLovedTracksParams): Promise<IUserGetLovedTracks> {
-    const data = await this.lastFmRequest(params, "getLovedTracks");
+    const data = await this.REQUEST.lastFm("user.getLovedTracks", this.API_KEY, params);
 
     return data as IUserGetLovedTracks;
   }
 
   public async getPersonalTags(params: IUserGetPersonalTagsParams): Promise<IUserGetPersonalTags> {
-    const data = await this.lastFmRequest(params, "getPersonalTags");
+    const data = await this.REQUEST.lastFm("user.getPersonalTags", this.API_KEY, params);
 
     return data as IUserGetPersonalTags;
   }
 
   public async getRecentTracks(params: IUserGetRecentTracksParams): Promise<IUserGetRecentTracks> {
-    const data = await this.lastFmRequest(params, "getRecentTracks");
+    const data = await this.REQUEST.lastFm("user.getRecentTracks", this.API_KEY, params);
 
     return data as IUserGetRecentTracks;
   }
 
   public async getTopAlbums(params: IUserGetTopAlbumsParams): Promise<IUserGetTopAlbums> {
-    const data = await this.lastFmRequest(params, "getTopAlbums");
+    const data = await this.REQUEST.lastFm("user.getTopAlbums", this.API_KEY, params);
 
     return data as IUserGetTopAlbums;
   }
 
   public async getTopArtists(params: IUserGetTopArtistsParams): Promise<IUserGetTopArtists> {
-    const data = await this.lastFmRequest(params, "getTopArtists");
+    const data = await this.REQUEST.lastFm("user.getTopArtists", this.API_KEY, params);
 
     return data as IUserGetTopArtists;
   }
 
   public async getTopTags(params: IUserGetTopTagsParams): Promise<IUserGetTopTags> {
-    const data = await this.lastFmRequest(params, "getTopTags");
+    const data = await this.REQUEST.lastFm("user.getTopTags", this.API_KEY, params);
 
     return data as IUserGetTopTags;
   }
 
   public async getTopTracks(params: IUserGetTopTracksParams): Promise<IUserGetTopTracks> {
-    const data = await this.lastFmRequest(params, "getTopTracks");
+    const data = await this.REQUEST.lastFm("user.getTopTracks", this.API_KEY, params);
 
     return data as IUserGetTopTracks;
   }
 
   public async getWeeklyAlbumChart(params: IUserGetWeeklyAlbumChartParams): Promise<IUserGetWeeklyAlbumChart> {
-    const data = await this.lastFmRequest(params, "getWeeklyAlbumChart");
+    const data = await this.REQUEST.lastFm("user.getWeeklyAlbumChart", this.API_KEY, params);
 
     return data as IUserGetWeeklyAlbumChart;
   }
 
   public async getWeeklyArtistChart(params: IUserGetWeeklyArtistChartParams): Promise<IUserGetWeeklyArtistChart> {
-    const data = await this.lastFmRequest(params, "getWeeklyArtistChart");
+    const data = await this.REQUEST.lastFm("user.getWeeklyArtistChart", this.API_KEY, params);
 
     return data as IUserGetWeeklyArtistChart;
   }
 
   public async getWeeklyChartList(params: IUserGetWeeklyChartListParams): Promise<IUserGetWeeklyChartList> {
-    const data = await this.lastFmRequest(params, "getWeeklyChartList");
+    const data = await this.REQUEST.lastFm("user.getWeeklyChartList", this.API_KEY, params);
 
     return data as IUserGetWeeklyChartList;
   }
 
   public async getWeeklyTrackChart(params: IUserGetWeeklyTrackChartParams): Promise<IUserGetWeeklyTrackChart> {
-    const data = await this.lastFmRequest(params, "getWeeklyTrackChart");
+    const data = await this.REQUEST.lastFm("user.getWeeklyTrackChart", this.API_KEY, params);
 
     return data as IUserGetWeeklyTrackChart;
-  }
-
-  private async lastFmRequest(params: Params, method: string): Promise<Response> {
-    const { data } = await axios.get(`${this.BASE_URL}/?method=user.${method}`, {
-      params: { ...params, ...this.DEFAULT_PARAMS }
-    });
-
-    return data;
   }
 }
