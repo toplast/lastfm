@@ -25,7 +25,6 @@ jobs:
           name: Running tests
           command: yarn test:coverage
       - codecov/upload:
-          name: Uploading coverage
           file: ~/lastfm/coverage/*.json
 
 workflows:
