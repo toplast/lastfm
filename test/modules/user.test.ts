@@ -100,9 +100,9 @@ describe("User tests", () => {
           limit: 5,
           user: "castilh0s",
           page: 1,
-          from: Math.floor(new Date("01/01/2020").getTime() / 1000),
+          from: Math.floor(new Date("Wed, 01 Jan 2020 00:00:00 GMT").getTime() / 1000),
           extended: 1,
-          to: Math.floor(new Date("12/31/2020").getTime() / 1000)
+          to: Math.floor(new Date("Thu, 31 Dec 2020 00:00:00 GMT").getTime() / 1000)
         });
 
         expect(mockedAxios.get).toHaveBeenLastCalledWith("/2.0", {
@@ -111,9 +111,9 @@ describe("User tests", () => {
             limit: 5,
             user: "castilh0s",
             page: 1,
-            from: 1577847600,
+            from: 1577836800,
             extended: 1,
-            to: 1609383600,
+            to: 1609372800,
             ...defaultParams
           }
         });
