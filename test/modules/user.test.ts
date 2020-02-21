@@ -41,7 +41,7 @@ describe("User tests", () => {
       it("Should call getFriends with the right params", async () => {
         await userService.getFriends({ user: "castilh0s", limit: 5, page: 1, recenttracks: false });
 
-        expect(mockedAxios.get).toHaveBeenCalledWith("/2.0", {
+        expect(mockedAxios.get).toHaveBeenLastCalledWith("/2.0", {
           params: {
             method: "user.getFriends",
             user: "castilh0s",
@@ -56,7 +56,7 @@ describe("User tests", () => {
       it("Should call getInfo with the right params", async () => {
         await userService.getInfo({ user: "castilh0s" });
 
-        expect(mockedAxios.get).toHaveBeenCalledWith("/2.0", {
+        expect(mockedAxios.get).toHaveBeenLastCalledWith("/2.0", {
           params: {
             method: "user.getInfo",
             user: "castilh0s",
@@ -68,7 +68,7 @@ describe("User tests", () => {
       it("Should call getLovedTracks with the right params", async () => {
         await userService.getLovedTracks({ user: "castilh0s", limit: 5, page: 1 });
 
-        expect(mockedAxios.get).toHaveBeenCalledWith("/2.0", {
+        expect(mockedAxios.get).toHaveBeenLastCalledWith("/2.0", {
           params: {
             method: "user.getLovedTracks",
             user: "castilh0s",
@@ -82,7 +82,7 @@ describe("User tests", () => {
       it("Should call getPersonalTags with the right params", async () => {
         await userService.getPersonalTags({ user: "castilh0s", tag: "disco", taggingtype: "album", limit: 5, page: 1 });
 
-        expect(mockedAxios.get).toHaveBeenCalledWith("/2.0", {
+        expect(mockedAxios.get).toHaveBeenLastCalledWith("/2.0", {
           params: {
             method: "user.getPersonalTags",
             user: "castilh0s",
@@ -105,7 +105,7 @@ describe("User tests", () => {
           to: Math.floor(new Date("12/31/2020").getTime() / 1000)
         });
 
-        expect(mockedAxios.get).toHaveBeenCalledWith("/2.0", {
+        expect(mockedAxios.get).toHaveBeenLastCalledWith("/2.0", {
           params: {
             method: "user.getRecentTracks",
             limit: 5,
@@ -122,7 +122,7 @@ describe("User tests", () => {
       it("Should call getTopAlbums with the right params", async () => {
         await userService.getTopAlbums({ user: "castilh0s", limit: 5, page: 1, period: "7day" });
 
-        expect(mockedAxios.get).toHaveBeenCalledWith("/2.0", {
+        expect(mockedAxios.get).toHaveBeenLastCalledWith("/2.0", {
           params: {
             method: "user.getTopAlbums",
             user: "castilh0s",
@@ -137,7 +137,7 @@ describe("User tests", () => {
       it("Should call getTopArtists with the right params", async () => {
         await userService.getTopArtists({ user: "castilh0s", limit: 5, page: 1, period: "7day" });
 
-        expect(mockedAxios.get).toHaveBeenCalledWith("/2.0", {
+        expect(mockedAxios.get).toHaveBeenLastCalledWith("/2.0", {
           params: {
             method: "user.getTopArtists",
             user: "castilh0s",
@@ -152,7 +152,7 @@ describe("User tests", () => {
       it("Should call getTopTags with the right params", async () => {
         await userService.getTopTags({ user: "castilh0s", limit: 5 });
 
-        expect(mockedAxios.get).toHaveBeenCalledWith("/2.0", {
+        expect(mockedAxios.get).toHaveBeenLastCalledWith("/2.0", {
           params: {
             method: "user.getTopTags",
             user: "castilh0s",
@@ -165,7 +165,7 @@ describe("User tests", () => {
       it("Should call getTopTracks with the right params", async () => {
         await userService.getTopTracks({ user: "castilh0s", limit: 5, page: 1, period: "7day" });
 
-        expect(mockedAxios.get).toHaveBeenCalledWith("/2.0", {
+        expect(mockedAxios.get).toHaveBeenLastCalledWith("/2.0", {
           params: {
             method: "user.getTopTracks",
             user: "castilh0s",
@@ -180,7 +180,7 @@ describe("User tests", () => {
       it("Should call getWeeklyAlbumChart with the right params", async () => {
         await userService.getWeeklyAlbumChart({ user: "castilh0s", from: "1108296000", to: "1108900800" });
 
-        expect(mockedAxios.get).toHaveBeenCalledWith("/2.0", {
+        expect(mockedAxios.get).toHaveBeenLastCalledWith("/2.0", {
           params: {
             method: "user.getWeeklyAlbumChart",
             user: "castilh0s",
@@ -194,7 +194,7 @@ describe("User tests", () => {
       it("Should call getWeeklyArtistChart with the right params", async () => {
         await userService.getWeeklyArtistChart({ user: "castilh0s", from: "1108296000", to: "1108900800" });
 
-        expect(mockedAxios.get).toHaveBeenCalledWith("/2.0", {
+        expect(mockedAxios.get).toHaveBeenLastCalledWith("/2.0", {
           params: {
             method: "user.getWeeklyArtistChart",
             user: "castilh0s",
@@ -208,7 +208,7 @@ describe("User tests", () => {
       it("Should call getWeeklyChartList with the right params", async () => {
         await userService.getWeeklyChartList({ user: "castilh0s" });
 
-        expect(mockedAxios.get).toHaveBeenCalledWith("/2.0", {
+        expect(mockedAxios.get).toHaveBeenLastCalledWith("/2.0", {
           params: {
             method: "user.getWeeklyChartList",
             user: "castilh0s",
@@ -220,7 +220,7 @@ describe("User tests", () => {
       it("Should call getWeeklyTrackChart with the right params", async () => {
         await userService.getWeeklyTrackChart({ user: "castilh0s", from: "1108296000", to: "1108900800" });
 
-        expect(mockedAxios.get).toHaveBeenCalledWith("/2.0", {
+        expect(mockedAxios.get).toHaveBeenLastCalledWith("/2.0", {
           params: {
             method: "user.getWeeklyTrackChart",
             user: "castilh0s",
