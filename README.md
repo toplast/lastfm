@@ -1,6 +1,9 @@
 # LastFm
 
-![Version](https://img.shields.io/npm/v/@toplast/lastfm) ![CircleCI](https://img.shields.io/circleci/build/github/castilh0s/lastfm) ![Downloads/Month](https://img.shields.io/npm/dm/@toplast/lastfm)
+[![CircleCI](https://circleci.com/gh/castilh0s/lastfm.svg?style=shield)](https://circleci.com/gh/castilh0s/lastfm)
+[![codecov](https://codecov.io/gh/castilh0s/lastfm/branch/master/graph/badge.svg)](https://codecov.io/gh/castilh0s/lastfm)
+[![npm version](https://img.shields.io/npm/v/@toplast/lastfm)](https://www.npmjs.com/package/@toplast/lastfm)
+[![npm downloads](https://img.shields.io/npm/dm/@toplast/lastfm)](https://www.npmjs.com/package/@toplast/lastfm)
 
 An asynchronous and typed client for the Last.fm API.
 
