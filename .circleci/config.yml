@@ -22,6 +22,9 @@ jobs:
           paths:
             - ./node_modules
       - run:
+          name: Runnning linter
+          command: yarn lint
+      - run:
           name: Running tests
           command: yarn test:coverage
       - codecov/upload:
