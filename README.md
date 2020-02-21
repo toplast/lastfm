@@ -1,5 +1,7 @@
 # LastFm
 
+![Version](https://img.shields.io/npm/v/@toplast/lastfm) ![CircleCI](https://img.shields.io/circleci/build/github/castilh0s/lastfm) ![Downloads/Month](https://img.shields.io/npm/dm/@toplast/lastfm)
+
 An asynchronous and typed client for the Last.fm API.
 
 ## Installing
@@ -19,11 +21,15 @@ $ yarn add @toplast/lastfm
 ## Example
 
 ``` javascript
-const { LastFm } = require("@toplast/lastfm");
+const {
+    LastFm
+} = require("@toplast/lastfm");
 
 const lastFm = new LastFm("API_KEY");
 
-lastFm.user.getTopAlbums({ user: "castilh0s" })
+lastFm.user.getTopAlbums({
+        user: "castilh0s"
+    })
     .then(response => {
         // Handle success
         console.log(response);
@@ -36,7 +42,9 @@ lastFm.user.getTopAlbums({ user: "castilh0s" })
 // Using async/await
 async function getTopAlbums() {
     try {
-        const response = await lastFm.user.getTopAlbums({ user: "castilh0s" })
+        const response = await lastFm.user.getTopAlbums({
+            user: "castilh0s"
+        })
     } catch (error) {
         console.error(error);
     }
