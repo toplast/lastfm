@@ -33,7 +33,6 @@
     "build": "tsc",
     "lint": "eslint 'src/**/*.ts'",
     "lint:fix": "yarn lint --fix",
-    "prepare": "yarn build",
     "preversion": "yarn lint",
     "version": "yarn lint:fix && git add -A src",
     "postversion": "git push && git push --tags",
