@@ -58,6 +58,10 @@ export class User implements IUserMethod {
   }
 
   public async getInfo(params: IUserGetInfoParams): Promise<IUserGetInfo> {
+    if (!params.user) {
+      throw new Error("User not found.");
+    }
+
     const data = await this.REQUEST.lastFm(
       "user.getInfo",
       this.API_KEY,

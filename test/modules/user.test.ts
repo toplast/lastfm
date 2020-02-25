@@ -35,11 +35,18 @@ describe("User tests", () => {
       const defaultParams = { api_key: "SOME_NICE_API_KEY", format: "json" };
 
       beforeEach(() => {
-        mockedAxios.get.mockImplementationOnce(() => Promise.resolve({ data: {} }));
+        mockedAxios.get.mockImplementationOnce(() =>
+          Promise.resolve({ data: {} }),
+        );
       });
 
       it("Should call getFriends with the right params", async () => {
-        await userService.getFriends({ user: "castilh0s", limit: 5, page: 1, recenttracks: false });
+        await userService.getFriends({
+          user: "castilh0s",
+          limit: 5,
+          page: 1,
+          recenttracks: false,
+        });
 
         expect(mockedAxios.get).toHaveBeenLastCalledWith("/2.0", {
           params: {
@@ -48,8 +55,8 @@ describe("User tests", () => {
             limit: 5,
             page: 1,
             recenttracks: false,
-            ...defaultParams
-          }
+            ...defaultParams,
+          },
         });
       });
 
@@ -60,13 +67,17 @@ describe("User tests", () => {
           params: {
             method: "user.getInfo",
             user: "castilh0s",
-            ...defaultParams
-          }
+            ...defaultParams,
+          },
         });
       });
 
       it("Should call getLovedTracks with the right params", async () => {
-        await userService.getLovedTracks({ user: "castilh0s", limit: 5, page: 1 });
+        await userService.getLovedTracks({
+          user: "castilh0s",
+          limit: 5,
+          page: 1,
+        });
 
         expect(mockedAxios.get).toHaveBeenLastCalledWith("/2.0", {
           params: {
@@ -74,13 +85,19 @@ describe("User tests", () => {
             user: "castilh0s",
             limit: 5,
             page: 1,
-            ...defaultParams
-          }
+            ...defaultParams,
+          },
         });
       });
 
       it("Should call getPersonalTags with the right params", async () => {
-        await userService.getPersonalTags({ user: "castilh0s", tag: "disco", taggingtype: "album", limit: 5, page: 1 });
+        await userService.getPersonalTags({
+          user: "castilh0s",
+          tag: "disco",
+          taggingtype: "album",
+          limit: 5,
+          page: 1,
+        });
 
         expect(mockedAxios.get).toHaveBeenLastCalledWith("/2.0", {
           params: {
@@ -90,8 +107,8 @@ describe("User tests", () => {
             taggingtype: "album",
             limit: 5,
             page: 1,
-            ...defaultParams
-          }
+            ...defaultParams,
+          },
         });
       });
 
@@ -100,9 +117,13 @@ describe("User tests", () => {
           limit: 5,
           user: "castilh0s",
           page: 1,
-          from: Math.floor(new Date("Wed, 01 Jan 2020 00:00:00 GMT").getTime() / 1000),
+          from: Math.floor(
+            new Date("Wed, 01 Jan 2020 00:00:00 GMT").getTime() / 1000,
+          ),
           extended: 1,
-          to: Math.floor(new Date("Thu, 31 Dec 2020 00:00:00 GMT").getTime() / 1000)
+          to: Math.floor(
+            new Date("Thu, 31 Dec 2020 00:00:00 GMT").getTime() / 1000,
+          ),
         });
 
         expect(mockedAxios.get).toHaveBeenLastCalledWith("/2.0", {
@@ -114,13 +135,18 @@ describe("User tests", () => {
             from: 1577836800,
             extended: 1,
             to: 1609372800,
-            ...defaultParams
-          }
+            ...defaultParams,
+          },
         });
       });
 
       it("Should call getTopAlbums with the right params", async () => {
-        await userService.getTopAlbums({ user: "castilh0s", limit: 5, page: 1, period: "7day" });
+        await userService.getTopAlbums({
+          user: "castilh0s",
+          limit: 5,
+          page: 1,
+          period: "7day",
+        });
 
         expect(mockedAxios.get).toHaveBeenLastCalledWith("/2.0", {
           params: {
@@ -129,13 +155,18 @@ describe("User tests", () => {
             limit: 5,
             page: 1,
             period: "7day",
-            ...defaultParams
-          }
+            ...defaultParams,
+          },
         });
       });
 
       it("Should call getTopArtists with the right params", async () => {
-        await userService.getTopArtists({ user: "castilh0s", limit: 5, page: 1, period: "7day" });
+        await userService.getTopArtists({
+          user: "castilh0s",
+          limit: 5,
+          page: 1,
+          period: "7day",
+        });
 
         expect(mockedAxios.get).toHaveBeenLastCalledWith("/2.0", {
           params: {
@@ -144,8 +175,8 @@ describe("User tests", () => {
             limit: 5,
             page: 1,
             period: "7day",
-            ...defaultParams
-          }
+            ...defaultParams,
+          },
         });
       });
 
@@ -157,13 +188,18 @@ describe("User tests", () => {
             method: "user.getTopTags",
             user: "castilh0s",
             limit: 5,
-            ...defaultParams
-          }
+            ...defaultParams,
+          },
         });
       });
 
       it("Should call getTopTracks with the right params", async () => {
-        await userService.getTopTracks({ user: "castilh0s", limit: 5, page: 1, period: "7day" });
+        await userService.getTopTracks({
+          user: "castilh0s",
+          limit: 5,
+          page: 1,
+          period: "7day",
+        });
 
         expect(mockedAxios.get).toHaveBeenLastCalledWith("/2.0", {
           params: {
@@ -172,13 +208,17 @@ describe("User tests", () => {
             limit: 5,
             page: 1,
             period: "7day",
-            ...defaultParams
-          }
+            ...defaultParams,
+          },
         });
       });
 
       it("Should call getWeeklyAlbumChart with the right params", async () => {
-        await userService.getWeeklyAlbumChart({ user: "castilh0s", from: "1108296000", to: "1108900800" });
+        await userService.getWeeklyAlbumChart({
+          user: "castilh0s",
+          from: "1108296000",
+          to: "1108900800",
+        });
 
         expect(mockedAxios.get).toHaveBeenLastCalledWith("/2.0", {
           params: {
@@ -186,13 +226,17 @@ describe("User tests", () => {
             user: "castilh0s",
             from: "1108296000",
             to: "1108900800",
-            ...defaultParams
-          }
+            ...defaultParams,
+          },
         });
       });
 
       it("Should call getWeeklyArtistChart with the right params", async () => {
-        await userService.getWeeklyArtistChart({ user: "castilh0s", from: "1108296000", to: "1108900800" });
+        await userService.getWeeklyArtistChart({
+          user: "castilh0s",
+          from: "1108296000",
+          to: "1108900800",
+        });
 
         expect(mockedAxios.get).toHaveBeenLastCalledWith("/2.0", {
           params: {
@@ -200,8 +244,8 @@ describe("User tests", () => {
             user: "castilh0s",
             from: "1108296000",
             to: "1108900800",
-            ...defaultParams
-          }
+            ...defaultParams,
+          },
         });
       });
 
@@ -212,13 +256,17 @@ describe("User tests", () => {
           params: {
             method: "user.getWeeklyChartList",
             user: "castilh0s",
-            ...defaultParams
-          }
+            ...defaultParams,
+          },
         });
       });
 
       it("Should call getWeeklyTrackChart with the right params", async () => {
-        await userService.getWeeklyTrackChart({ user: "castilh0s", from: "1108296000", to: "1108900800" });
+        await userService.getWeeklyTrackChart({
+          user: "castilh0s",
+          from: "1108296000",
+          to: "1108900800",
+        });
 
         expect(mockedAxios.get).toHaveBeenLastCalledWith("/2.0", {
           params: {
@@ -226,8 +274,8 @@ describe("User tests", () => {
             user: "castilh0s",
             from: "1108296000",
             to: "1108900800",
-            ...defaultParams
-          }
+            ...defaultParams,
+          },
         });
       });
     });
