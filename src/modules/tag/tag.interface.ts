@@ -4,7 +4,7 @@ import {
   ITagGetTopAlbumsParams,
   ITagGetTopArtistsParams,
   ITagGetTopTracksParams,
-  ITagGetWeeklyChartListParams
+  ITagGetWeeklyChartListParams,
 } from "./params.interface";
 import { IImage } from "../../common/common.interface";
 
@@ -15,7 +15,9 @@ export interface ITagMethod {
   getTopArtists(params: ITagGetTopArtistsParams): Promise<ITagGetTopArtists>;
   getTopTags(): Promise<ITagGetTopTags>;
   getTopTracks(params: ITagGetTopTracksParams): Promise<ITagGetTopTracks>;
-  getWeeklyChartList(params: ITagGetWeeklyChartListParams): Promise<ITagGetWeeklyChartList>;
+  getWeeklyChartList(
+    params: ITagGetWeeklyChartListParams,
+  ): Promise<ITagGetWeeklyChartList>;
 }
 
 export interface ITagGetInfo {

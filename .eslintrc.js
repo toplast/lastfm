@@ -3,16 +3,16 @@ module.exports = {
   extends: [
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "prettier/@typescript-eslint",
+    "plugin:prettier/recommended",
   ],
   parserOptions: {
     ecmaVersion: 2018,
-    sourceType: "module"
+    sourceType: "module",
   },
   rules: {
     // ESlint rules
-    semi: ["error", "always"],
-    quotes: ["error", "double"],
     "no-multiple-empty-lines": ["error", { max: 1 }],
     "brace-style": ["error", "1tbs", { allowSingleLine: false }],
     "padding-line-between-statements": [
@@ -37,42 +37,47 @@ module.exports = {
           "switch",
           "throw",
           "try",
-          "while"
+          "while",
         ],
-        next: "*"
+        next: "*",
       },
       {
         blankLine: "always",
         prev: "*",
-        next: ["multiline-const", "multiline-let", "return"]
+        next: ["multiline-const", "multiline-let", "return"],
       },
       {
         blankLine: "any",
         prev: ["singleline-const", "singleline-let"],
-        next: ["singleline-const", "singleline-let"]
+        next: ["singleline-const", "singleline-let"],
       },
       {
         blankLine: "any",
         prev: "directive",
-        next: "directive"
+        next: "directive",
       },
       {
         blankLine: "any",
         prev: "import",
-        next: "import"
-      }
+        next: "import",
+      },
     ],
-    "max-len": ["error", { code: 120, comments: 120, ignoreUrls: true }],
-    "max-lines-per-function": ["error", { max: 30, skipBlankLines: true, skipComments: true }],
+    "max-lines-per-function": [
+      "error",
+      { max: 30, skipBlankLines: true, skipComments: true },
+    ],
     "no-import-assign": "error",
     "no-duplicate-imports": "error",
     "no-useless-rename": "error",
     "sort-imports": "error",
     // Typescript ESlint rules
     "@typescript-eslint/explicit-function-return-type": "error",
-    "@typescript-eslint/no-explicit-any": ["error", { "ignoreRestArgs": true }],
+    "@typescript-eslint/no-explicit-any": ["error", { ignoreRestArgs: true }],
     "@typescript-eslint/no-inferrable-types": "error",
     "@typescript-eslint/no-unused-vars": "error",
-    "@typescript-eslint/interface-name-prefix": ["error", { "prefixWithI": "always" }]
-  }
-}
+    "@typescript-eslint/interface-name-prefix": [
+      "error",
+      { prefixWithI: "always" },
+    ],
+  },
+};
