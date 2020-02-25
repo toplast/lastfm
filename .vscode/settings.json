@@ -4,16 +4,21 @@
   },
   "eslint.validate": [
     "javascript",
-    "typescript"
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
   ],
   "editor.formatOnSave": true,
   "[javascript]": {
     "editor.formatOnSave": false
   },
+  "[javascriptreact]": {
+    "editor.formatOnSave": false
+  },
   "[typescript]": {
     "editor.formatOnSave": false
   },
-  "[markdown]": {
+  "[typescriptreact]": {
     "editor.formatOnSave": false
   },
   "search.exclude": {

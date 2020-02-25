@@ -14,7 +14,7 @@ import {
   ITagGetTopAlbumsParams,
   ITagGetTopArtistsParams,
   ITagGetTopTracksParams,
-  ITagGetWeeklyChartListParams
+  ITagGetWeeklyChartListParams,
 } from "../tag/params.interface";
 import {
   IUserGetFriends,
@@ -44,34 +44,68 @@ import {
   IUserGetWeeklyAlbumChartParams,
   IUserGetWeeklyArtistChartParams,
   IUserGetWeeklyChartListParams,
-  IUserGetWeeklyTrackChartParams
+  IUserGetWeeklyTrackChartParams,
 } from "../user/params.interface";
 import axios from "axios";
 
 axios.defaults.baseURL = "https://ws.audioscrobbler.com";
 
-type Params = ITagGetInfoParams | ITagGetSimilarParams | ITagGetTopAlbumsParams | ITagGetTopArtistsParams |
-  ITagGetTopTracksParams | ITagGetWeeklyChartListParams | IUserGetFriendsParams | IUserGetInfoParams |
-  IUserGetLovedTracksParams | IUserGetPersonalTagsParams | IUserGetRecentTracksParams | IUserGetTopAlbumsParams |
-  IUserGetTopArtistsParams | IUserGetTopTagsParams | IUserGetTopTracksParams | IUserGetWeeklyAlbumChartParams |
-  IUserGetWeeklyArtistChartParams | IUserGetWeeklyChartListParams | IUserGetWeeklyTrackChartParams
-type Response = ITagGetInfo | ITagGetSimilar | ITagGetTopAlbums | ITagGetTopArtists | ITagGetTopTags |
-  ITagGetTopTracks | ITagGetWeeklyChartList | IUserGetFriends | IUserGetInfo | IUserGetLovedTracks |
-  IUserGetPersonalTags | IUserGetRecentTracks | IUserGetTopAlbums | IUserGetTopArtists | IUserGetTopTags |
-  IUserGetTopTracks | IUserGetWeeklyAlbumChart | IUserGetWeeklyArtistChart | IUserGetWeeklyChartList |
-  IUserGetWeeklyTrackChart
+type Params =
+  | ITagGetInfoParams
+  | ITagGetSimilarParams
+  | ITagGetTopAlbumsParams
+  | ITagGetTopArtistsParams
+  | ITagGetTopTracksParams
+  | ITagGetWeeklyChartListParams
+  | IUserGetFriendsParams
+  | IUserGetInfoParams
+  | IUserGetLovedTracksParams
+  | IUserGetPersonalTagsParams
+  | IUserGetRecentTracksParams
+  | IUserGetTopAlbumsParams
+  | IUserGetTopArtistsParams
+  | IUserGetTopTagsParams
+  | IUserGetTopTracksParams
+  | IUserGetWeeklyAlbumChartParams
+  | IUserGetWeeklyArtistChartParams
+  | IUserGetWeeklyChartListParams
+  | IUserGetWeeklyTrackChartParams;
+type Response =
+  | ITagGetInfo
+  | ITagGetSimilar
+  | ITagGetTopAlbums
+  | ITagGetTopArtists
+  | ITagGetTopTags
+  | ITagGetTopTracks
+  | ITagGetWeeklyChartList
+  | IUserGetFriends
+  | IUserGetInfo
+  | IUserGetLovedTracks
+  | IUserGetPersonalTags
+  | IUserGetRecentTracks
+  | IUserGetTopAlbums
+  | IUserGetTopArtists
+  | IUserGetTopTags
+  | IUserGetTopTracks
+  | IUserGetWeeklyAlbumChart
+  | IUserGetWeeklyArtistChart
+  | IUserGetWeeklyChartList
+  | IUserGetWeeklyTrackChart;
 
 export class ApiRequest {
-
-  public async lastFm(method: string, apiKey: string, params?: Params): Promise<Response> {
+  public async lastFm(
+    method: string,
+    apiKey: string,
+    params?: Params,
+  ): Promise<Response> {
     try {
       const { data } = await axios.get("/2.0", {
         params: {
           ...params,
           method,
           format: "json",
-          api_key: apiKey
-        }
+          api_key: apiKey,
+        },
       });
 
       return data;

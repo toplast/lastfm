@@ -7,7 +7,7 @@ import {
   ITagGetTopTags,
   ITagGetTopTracks,
   ITagGetWeeklyChartList,
-  ITagMethod
+  ITagMethod,
 } from "./tag.interface";
 import {
   ITagGetInfoParams,
@@ -15,13 +15,13 @@ import {
   ITagGetTopAlbumsParams,
   ITagGetTopArtistsParams,
   ITagGetTopTracksParams,
-  ITagGetWeeklyChartListParams
+  ITagGetWeeklyChartListParams,
 } from "./params.interface";
 import { ApiRequest } from "../request/request.service";
 
 export class Tag implements ITagMethod {
-  private readonly API_KEY: string
-  private readonly REQUEST: ApiRequest
+  private readonly API_KEY: string;
+  private readonly REQUEST: ApiRequest;
 
   constructor(API_KEY: string) {
     if (!API_KEY) {
@@ -38,20 +38,38 @@ export class Tag implements ITagMethod {
     return data as ITagGetInfo;
   }
 
-  public async getSimilar(params: ITagGetSimilarParams): Promise<ITagGetSimilar> {
-    const data = await this.REQUEST.lastFm("tag.getSimilar", this.API_KEY, params);
+  public async getSimilar(
+    params: ITagGetSimilarParams,
+  ): Promise<ITagGetSimilar> {
+    const data = await this.REQUEST.lastFm(
+      "tag.getSimilar",
+      this.API_KEY,
+      params,
+    );
 
     return data as ITagGetSimilar;
   }
 
-  public async getTopAlbums(params: ITagGetTopAlbumsParams): Promise<ITagGetTopAlbums> {
-    const data = await this.REQUEST.lastFm("tag.getTopAlbums", this.API_KEY, params);
+  public async getTopAlbums(
+    params: ITagGetTopAlbumsParams,
+  ): Promise<ITagGetTopAlbums> {
+    const data = await this.REQUEST.lastFm(
+      "tag.getTopAlbums",
+      this.API_KEY,
+      params,
+    );
 
     return data as ITagGetTopAlbums;
   }
 
-  public async getTopArtists(params: ITagGetTopArtistsParams): Promise<ITagGetTopArtists> {
-    const data = await this.REQUEST.lastFm("tag.getTopArtists", this.API_KEY, params);
+  public async getTopArtists(
+    params: ITagGetTopArtistsParams,
+  ): Promise<ITagGetTopArtists> {
+    const data = await this.REQUEST.lastFm(
+      "tag.getTopArtists",
+      this.API_KEY,
+      params,
+    );
 
     return data as ITagGetTopArtists;
   }
@@ -62,14 +80,26 @@ export class Tag implements ITagMethod {
     return data as ITagGetTopTags;
   }
 
-  public async getTopTracks(params: ITagGetTopTracksParams): Promise<ITagGetTopTracks> {
-    const data = await this.REQUEST.lastFm("tag.getTopTracks", this.API_KEY, params);
+  public async getTopTracks(
+    params: ITagGetTopTracksParams,
+  ): Promise<ITagGetTopTracks> {
+    const data = await this.REQUEST.lastFm(
+      "tag.getTopTracks",
+      this.API_KEY,
+      params,
+    );
 
     return data as ITagGetTopTracks;
   }
 
-  public async getWeeklyChartList(params: ITagGetWeeklyChartListParams): Promise<ITagGetWeeklyChartList> {
-    const data = await this.REQUEST.lastFm("tag.getWeeklyChartList", this.API_KEY, params);
+  public async getWeeklyChartList(
+    params: ITagGetWeeklyChartListParams,
+  ): Promise<ITagGetWeeklyChartList> {
+    const data = await this.REQUEST.lastFm(
+      "tag.getWeeklyChartList",
+      this.API_KEY,
+      params,
+    );
 
     return data as ITagGetWeeklyChartList;
   }

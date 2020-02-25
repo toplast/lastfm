@@ -1,4 +1,12 @@
-import { IAlbum, IArtist, IAttr, IChart, ITag, ITrack, IUser } from "../../common/common.interface";
+import {
+  IAlbum,
+  IArtist,
+  IAttr,
+  IChart,
+  ITag,
+  ITrack,
+  IUser,
+} from "../../common/common.interface";
 import {
   IUserGetFriendsParams,
   IUserGetInfoParams,
@@ -12,23 +20,37 @@ import {
   IUserGetWeeklyAlbumChartParams,
   IUserGetWeeklyArtistChartParams,
   IUserGetWeeklyChartListParams,
-  IUserGetWeeklyTrackChartParams
+  IUserGetWeeklyTrackChartParams,
 } from "./params.interface";
 
 export interface IUserMethod {
   getFriends(params: IUserGetFriendsParams): Promise<IUserGetFriends>;
   getInfo(params: IUserGetInfoParams): Promise<IUserGetInfo>;
-  getLovedTracks(params: IUserGetLovedTracksParams): Promise<IUserGetLovedTracks>;
-  getPersonalTags(params: IUserGetPersonalTagsParams): Promise<IUserGetPersonalTags>;
-  getRecentTracks(params: IUserGetRecentTracksParams): Promise<IUserGetRecentTracks>;
+  getLovedTracks(
+    params: IUserGetLovedTracksParams,
+  ): Promise<IUserGetLovedTracks>;
+  getPersonalTags(
+    params: IUserGetPersonalTagsParams,
+  ): Promise<IUserGetPersonalTags>;
+  getRecentTracks(
+    params: IUserGetRecentTracksParams,
+  ): Promise<IUserGetRecentTracks>;
   getTopAlbums(params: IUserGetTopAlbumsParams): Promise<IUserGetTopAlbums>;
   getTopArtists(params: IUserGetTopArtistsParams): Promise<IUserGetTopArtists>;
   getTopTags(params: IUserGetTopTagsParams): Promise<IUserGetTopTags>;
   getTopTracks(params: IUserGetTopTracksParams): Promise<IUserGetTopTracks>;
-  getWeeklyAlbumChart(params: IUserGetWeeklyAlbumChartParams): Promise<IUserGetWeeklyAlbumChart>;
-  getWeeklyArtistChart(params: IUserGetWeeklyArtistChartParams): Promise<IUserGetWeeklyArtistChart>;
-  getWeeklyChartList(params: IUserGetWeeklyChartListParams): Promise<IUserGetWeeklyChartList>;
-  getWeeklyTrackChart(params: IUserGetWeeklyTrackChartParams): Promise<IUserGetWeeklyTrackChart>;
+  getWeeklyAlbumChart(
+    params: IUserGetWeeklyAlbumChartParams,
+  ): Promise<IUserGetWeeklyAlbumChart>;
+  getWeeklyArtistChart(
+    params: IUserGetWeeklyArtistChartParams,
+  ): Promise<IUserGetWeeklyArtistChart>;
+  getWeeklyChartList(
+    params: IUserGetWeeklyChartListParams,
+  ): Promise<IUserGetWeeklyChartList>;
+  getWeeklyTrackChart(
+    params: IUserGetWeeklyTrackChartParams,
+  ): Promise<IUserGetWeeklyTrackChart>;
 }
 
 export interface IUserGetFriends {
