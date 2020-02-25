@@ -35,7 +35,6 @@
     "lint:fix": "yarn lint --fix",
     "preversion": "yarn lint",
     "version": "yarn lint:fix && git add -A src",
-    "postversion": "git push && git push --tags",
     "test": "jest .",
     "test:coverage": "yarn test --collectCoverage",
     "test:watch": "yarn test --watch"
