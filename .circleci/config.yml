@@ -56,11 +56,6 @@ jobs:
       - checkout
       - attach_workspace:
           at: ~/lastfm
-      - restore_cache:
-          keys:
-            - v1-yarn-{{ checksum "yarn.lock" }}
-            - v1-dependencies-
-      - run: yarn install --frozen-lockfile
       - run:
           name: Authenticate with registry
           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/lastfm/.npmrc
@@ -79,5 +74,7 @@ workflows:
             - test
             - build
           filters:
+            branches:
+              ignore: /.*/
             tags:
               only: /^v.*/
