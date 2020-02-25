@@ -2,36 +2,79 @@ version: 2.1
 orbs:
   codecov: codecov/codecov@1.0.5
 
+defaults: &defaults
+  docker:
+    - image: circleci/node
+  working_directory: ~/lastfm
+
 jobs:
   test:
-    docker:
-      - image: circleci/node
-    parallelism: 1
-    working_directory: ~/lastfm
+    <<: *defaults
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-yarn-{{ checksum "yarn.lock" }}
+            - v1-dependencies-
+      - run: yarn install --frozen-lockfile
+      - run:
+          name: Run linter
+          command: yarn lint
+      - run:
+          name: Run tests
+          command: yarn test:coverage
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-yarn-{{ checksum "yarn.lock" }}
+      - codecov/upload:
+          file: coverage/*.json
+  build:
+    <<: *defaults
     steps:
       - checkout
       - attach_workspace:
           at: ~/lastfm
       - restore_cache:
-          key: v1-yarn-{{ checksum "yarn.lock" }}
+          keys:
+            - v1-yarn-{{ checksum "yarn.lock" }}
+            - v1-dependencies-
+      - run: yarn install --frozen-lockfile
       - run:
-          name: Installing dependencies
-          command: yarn install --frozen-lockfile
+          name: Building project
+          command: yarn build
       - save_cache:
           key: v1-yarn-{{ checksum "yarn.lock" }}
           paths:
             - ./node_modules
+      - persist_to_workspace:
+          root: .
+          paths: lib
+  deploy:
+    <<: *defaults
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/lastfm
       - run:
-          name: Runnning linter
-          command: yarn lint
+          name: Authenticate with registry
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
       - run:
-          name: Running tests
-          command: yarn test:coverage
-      - codecov/upload:
-          file: ~/lastfm/coverage/*.json
+          name: Publish package
+          command: npm publish
 
 workflows:
   version: 2
   ci:
     jobs:
       - test
+      - build
+      - deploy:
+          requires:
+            - test
+            - build
+          filters:
+            tags:
+              only: /^v.*/
+            branches:
+              only: master
