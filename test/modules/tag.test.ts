@@ -2,7 +2,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-ignore */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/camelcase */
-
 import { Tag } from "../../src/modules/tag/tag.service";
 import axios from "axios";
 
@@ -35,7 +34,9 @@ describe("Tag tests", () => {
       const defaultParams = { api_key: "SOME_NICE_API_KEY", format: "json" };
 
       beforeEach(() => {
-        mockedAxios.get.mockImplementationOnce(() => Promise.resolve({ data: {} }));
+        mockedAxios.get.mockImplementationOnce(() =>
+          Promise.resolve({ data: {} }),
+        );
       });
 
       it("Should call getInformation with the right params", async () => {
@@ -46,8 +47,8 @@ describe("Tag tests", () => {
             method: "tag.getInfo",
             tag: "disco",
             lang: "pt",
-            ...defaultParams
-          }
+            ...defaultParams,
+          },
         });
       });
 
@@ -58,8 +59,8 @@ describe("Tag tests", () => {
           params: {
             method: "tag.getSimilar",
             tag: "disco",
-            ...defaultParams
-          }
+            ...defaultParams,
+          },
         });
       });
 
@@ -72,8 +73,8 @@ describe("Tag tests", () => {
             tag: "disco",
             limit: "5",
             page: 1,
-            ...defaultParams
-          }
+            ...defaultParams,
+          },
         });
       });
 
@@ -86,8 +87,8 @@ describe("Tag tests", () => {
             tag: "disco",
             limit: "5",
             page: 1,
-            ...defaultParams
-          }
+            ...defaultParams,
+          },
         });
       });
 
@@ -97,8 +98,8 @@ describe("Tag tests", () => {
         expect(mockedAxios.get).toHaveBeenLastCalledWith("/2.0", {
           params: {
             method: "tag.getTopTags",
-            ...defaultParams
-          }
+            ...defaultParams,
+          },
         });
       });
 
@@ -111,8 +112,8 @@ describe("Tag tests", () => {
             tag: "disco",
             limit: "5",
             page: 1,
-            ...defaultParams
-          }
+            ...defaultParams,
+          },
         });
       });
 
@@ -123,8 +124,8 @@ describe("Tag tests", () => {
           params: {
             method: "tag.getWeeklyChartList",
             tag: "disco",
-            ...defaultParams
-          }
+            ...defaultParams,
+          },
         });
       });
     });

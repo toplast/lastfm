@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-ignore */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { LastFm } from "../src/lastfm";
+import LastFm from "../src/lastfm";
 
 describe("Last.fm tests", () => {
   describe("Constructor tests", () => {
