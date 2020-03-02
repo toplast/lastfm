@@ -1,56 +1,42 @@
-# LastFm
+<h1 align="center">@toplast/lastfm</h1>
 
-[![CircleCI](https://circleci.com/gh/castilh0s/lastfm.svg?style=shield)](https://circleci.com/gh/castilh0s/lastfm)
-[![codecov](https://codecov.io/gh/castilh0s/lastfm/branch/master/graph/badge.svg)](https://codecov.io/gh/castilh0s/lastfm)
-[![npm version](https://img.shields.io/npm/v/@toplast/lastfm)](https://www.npmjs.com/package/@toplast/lastfm)
-[![npm downloads](https://img.shields.io/npm/dm/@toplast/lastfm)](https://www.npmjs.com/package/@toplast/lastfm)
+<h5 align="center">An asynchronous and typed client for the Last.fm API</h5>
 
-An asynchronous and typed client for the Last.fm API.
+<div align="center">
+  <a href="https://circleci.com/gh/castilh0s/lastfm">
+    <img src="https://circleci.com/gh/castilh0s/lastfm.svg?style=shield" alt="CircleCI" />
+  </a>
+  <a href="https://codecov.io/gh/castilh0s/lastfm">
+    <img src="https://codecov.io/gh/castilh0s/lastfm/branch/master/graph/badge.svg" alt="Coverage" />
+  </a>
+  <a href="https://www.npmjs.com/package/@toplast/lastfm">
+    <img src="https://img.shields.io/npm/v/@toplast/lastfm" alt="npm version" />
+  </a>
+  <a href="https://www.npmjs.com/package/@toplast/lastfm">
+    <img src="https://img.shields.io/npm/dm/@toplast/lastfm" alt="npm downloads"/>
+  </a>
+</div>
 
-## Installing
-
-Using npm:
-
-```bash
-$ npm install @toplast/lastfm
-```
-
-Using yarn:
-
-```bash
-$ yarn add @toplast/lastfm
-```
-
-## Example
+<br />
 
 ```javascript
 const LastFm = require("@toplast/lastfm");
-
-const lastFm = new LastFm("API_KEY");
+const lastFm = new LastFm("SOME_NICE_API_KEY");
 
 lastFm.user
-  .getTopAlbums({
-    user: "castilh0s",
-  })
-  .then(response => {
-    // Handle success
-    console.log(response);
-  })
-  .error(error => {
-    // Handle error
-    console.log(error);
-  });
+  .getTopAlbums({ user: "castilh0s" })
+  .then(response => console.log(response)) // Handle success
+  .error(error => console.log(error)); // Handle error
+```
 
-// Using async/await
-async function getTopAlbums() {
-  try {
-    const response = await lastFm.user.getTopAlbums({
-      user: "castilh0s",
-    });
-  } catch (error) {
-    console.error(error);
-  }
-}
+## Installation
+
+```bash
+# With npm
+$ npm install @toplast/lastfm
+
+# With yarn
+$ yarn add @toplast/lastfm
 ```
 
 ## TypeScript
