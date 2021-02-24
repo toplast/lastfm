@@ -25,8 +25,8 @@ const lastFm = new LastFm("SOME_NICE_API_KEY");
 
 lastFm.user
   .getTopAlbums({ user: "castilh0s" })
-  .then(response => console.log(response)) // Handle success
-  .error(error => console.log(error)); // Handle error
+  .then((response) => console.log(response)) // Handle success
+  .error((error) => console.log(error)); // Handle error
 ```
 
 ## Installation
@@ -35,7 +35,7 @@ lastFm.user
 # With npm
 $ npm install @toplast/lastfm
 
-# With yarn
+# Or with yarn
 $ yarn add @toplast/lastfm
 ```
 
