@@ -98,19 +98,15 @@ export class ApiRequest {
     apiKey: string,
     params?: Params,
   ): Promise<Response> {
-    try {
-      const { data } = await axios.get("/2.0", {
-        params: {
-          ...params,
-          method,
-          format: "json",
-          api_key: apiKey,
-        },
-      });
+    const { data } = await axios.get("/2.0", {
+      params: {
+        ...params,
+        method,
+        format: "json",
+        api_key: apiKey,
+      },
+    });
 
-      return data;
-    } catch (error) {
-      throw new Error(error);
-    }
+    return data;
   }
 }
