@@ -37,7 +37,11 @@ describe("User tests", () => {
     let userService: User;
 
     beforeAll(() => {
-      userService = new User("SOME_NICE_API_KEY");
+      userService = new User("SOME_NICE_API_KEY");      
+    });
+
+    beforeEach(() => {
+      mockedAxios.get.mockClear()
     });
 
     describe("Error tests", () => {
@@ -45,10 +49,6 @@ describe("User tests", () => {
         mockedAxios.get.mockImplementationOnce(() => {
           throw mockAxiosError;
         });
-      });
-
-      afterEach(() => {
-        mockedAxios.get.mockReset();
       });
 
       it("Should raise a request error when the status fails", async () => {

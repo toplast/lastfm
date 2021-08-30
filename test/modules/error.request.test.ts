@@ -19,8 +19,8 @@ const mockAxiosResponse = {
 
 describe("RequestError tests", () => {
   let error: RequestError;
-  let mockError: typeof mockAxiosError;
-
+  let mockError: AxiosError;
+  
   beforeEach(() => {
     mockError = { ...mockAxiosError };
   });
