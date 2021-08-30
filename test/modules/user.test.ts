@@ -3,12 +3,21 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/camelcase */
 
+import axios, { AxiosError } from "axios";
+import RequestError from "../../src/modules/error/error.request";
 import { User } from "../../src/modules/user/user.service";
-import axios from "axios";
 
 jest.mock("axios");
 
 const mockedAxios = axios as jest.Mocked<typeof axios>;
+
+const mockAxiosError: AxiosError = {
+  isAxiosError: true,
+  toJSON: jest.fn(),
+  config: null,
+  name: null,
+  message: "Test Error Message",
+};
 
 describe("User tests", () => {
   describe("Constructor tests", () => {
@@ -29,6 +38,31 @@ describe("User tests", () => {
 
     beforeAll(() => {
       userService = new User("SOME_NICE_API_KEY");
+    });
+
+    describe("Error tests", () => {
+      beforeEach(() => {
+        mockedAxios.get.mockImplementationOnce(() => {
+          throw mockAxiosError;
+        });
+      });
+
+      afterEach(() => {
+        mockedAxios.get.mockReset();
+      });
+
+      it("Should raise a request error when the status fails", async () => {
+        const expectedError = new RequestError(mockAxiosError);
+
+        expect(
+          userService.getFriends({
+            user: "castilh0s",
+            limit: 5,
+            page: 1,
+            recenttracks: false,
+          }),
+        ).rejects.toMatchObject(expectedError);
+      });
     });
 
     describe("Params tests", () => {

@@ -46,6 +46,7 @@ import {
   IUserGetWeeklyChartListParams,
   IUserGetWeeklyTrackChartParams,
 } from "../user/params.interface";
+import RequestError from "../error/error.request";
 import axios from "axios";
 
 axios.defaults.baseURL = "https://ws.audioscrobbler.com";
@@ -109,8 +110,8 @@ export class ApiRequest {
       });
 
       return data;
-    } catch (error) {
-      throw new Error(error);
+    } catch (err) {
+      throw new RequestError(err);
     }
   }
 }
