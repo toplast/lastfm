@@ -88,7 +88,7 @@ export interface IUserGetPersonalTags {
 
 export interface IUserGetRecentTracks {
   recenttracks: {
-    track: ITrack[];
+    track: (ITrack & { "@attr"?: { nowplaying: "true" } })[];
     "@attr": IAttr;
   };
 }
