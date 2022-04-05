@@ -20,7 +20,7 @@ const mockAxiosResponse = {
 describe("RequestError tests", () => {
   let error: RequestError;
   let mockError: AxiosError;
-  
+
   beforeEach(() => {
     mockError = { ...mockAxiosError };
   });
