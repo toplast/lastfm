@@ -5,6 +5,7 @@ import { Album } from "../src/modules/album/album.service";
 import { Artist } from "../src/modules/artist/artist.service";
 import LastFm from "../src/lastfm";
 import { Tag } from "../src/modules/tag/tag.service";
+import { Track } from "../src/modules/track/track.service";
 import { User } from "../src/modules/user/user.service";
 
 describe("Last.fm tests", () => {
@@ -29,6 +30,10 @@ describe("Last.fm tests", () => {
 
       it("Should have a Tag instance", () => {
         expect(instance.tag).toBeInstanceOf(Tag);
+      });
+
+      it("Should have a Track instance", () => {
+        expect(instance.track).toBeInstanceOf(Track);
       });
 
       it("Should have a User instance", () => {

@@ -22,6 +22,7 @@ import {
   ITagGetTopTracksParams,
   ITagGetWeeklyChartListParams,
 } from "../tag/params.interface";
+import { ITrackGetInfo, ITrackGetTopTags } from "../track/track.interface";
 import {
   IUserGetFriends,
   IUserGetInfo,
@@ -61,6 +62,11 @@ import {
   TArtistGetTopAlbumsParams,
   TArtistGetTopTagsParams,
 } from "../artist/params.interface";
+import {
+  TTrackGetInfoParams,
+  TTrackGetTopTagsParams,
+} from "../track/params.interface";
+
 import RequestError from "../error/error.request";
 import axios from "axios";
 
@@ -78,6 +84,8 @@ type Params =
   | ITagGetTopArtistsParams
   | ITagGetTopTracksParams
   | ITagGetWeeklyChartListParams
+  | TTrackGetInfoParams
+  | TTrackGetTopTagsParams
   | IUserGetFriendsParams
   | IUserGetInfoParams
   | IUserGetLovedTracksParams
@@ -104,6 +112,8 @@ type Response =
   | ITagGetTopTags
   | ITagGetTopTracks
   | ITagGetWeeklyChartList
+  | ITrackGetInfo
+  | ITrackGetTopTags
   | IUserGetFriends
   | IUserGetInfo
   | IUserGetLovedTracks
