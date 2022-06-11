@@ -1,5 +1,6 @@
+/* eslint-disable max-lines-per-function */
 import type { AxiosError } from "axios";
-import RequestError from "../../src/modules/error/error.request";
+import RequestError from "../../../src/modules/error/error.request";
 
 const mockAxiosError: AxiosError = {
   isAxiosError: true,
@@ -24,7 +25,6 @@ describe("RequestError tests", () => {
   beforeEach(() => {
     mockError = { ...mockAxiosError };
   });
-
   describe("when there is a status code", () => {
     beforeEach(() => {
       mockError.response = mockAxiosResponse;
@@ -35,6 +35,10 @@ describe("RequestError tests", () => {
       expect(error.statusCode).toBe(mockError.response.status);
       expect(error.message).toBe(mockError.message);
     });
+
+    it("should have the correct name", () => {
+      expect(error.name).toBe("RequestError");
+    });
   });
   describe("when there is NOT a status code", () => {
     beforeEach(() => {
@@ -44,6 +48,10 @@ describe("RequestError tests", () => {
     it("should report the correct status code", () => {
       expect(error.statusCode).toBeUndefined();
       expect(error.message).toBe(mockError.message);
+    });
+
+    it("should have the correct name", () => {
+      expect(error.name).toBe("RequestError");
     });
   });
 });

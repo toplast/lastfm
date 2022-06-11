@@ -6,6 +6,8 @@ class RequestError extends Error {
   constructor(err: AxiosError) {
     super(err.message);
     if (err.response) this.statusCode = err.response.status;
+
+    this.name = "RequestError";
   }
 }
 
