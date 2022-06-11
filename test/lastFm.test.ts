@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/ban-ts-ignore */
 /* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable max-lines-per-function */
 import { Album } from "../src/modules/album/album.service";
+import { Artist } from "../src/modules/artist/artist.service";
 import LastFm from "../src/lastfm";
 import { Tag } from "../src/modules/tag/tag.service";
 import { User } from "../src/modules/user/user.service";
@@ -19,6 +21,10 @@ describe("Last.fm tests", () => {
 
       it("Should have a Album instance", () => {
         expect(instance.album).toBeInstanceOf(Album);
+      });
+
+      it("Should have a Artist instance", () => {
+        expect(instance.artist).toBeInstanceOf(Artist);
       });
 
       it("Should have a Tag instance", () => {

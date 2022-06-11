@@ -1,6 +1,11 @@
 /* eslint-disable @typescript-eslint/camelcase */
 import { IAlbumGetInfo, IAlbumGetTopTags } from "../album/album.interface";
 import {
+  IArtistGetInfo,
+  IArtistGetTopAlbums,
+  IArtistGetTopTags,
+} from "../artist/artist.interface";
+import {
   ITagGetInfo,
   ITagGetSimilar,
   ITagGetTopAlbums,
@@ -51,6 +56,11 @@ import {
   TAlbumGetInfoParams,
   TAlbumGetTopTagsParams,
 } from "../album/params.interface";
+import {
+  TArtistGetInfoParams,
+  TArtistGetTopAlbumsParams,
+  TArtistGetTopTagsParams,
+} from "../artist/params.interface";
 import RequestError from "../error/error.request";
 import axios from "axios";
 
@@ -59,6 +69,9 @@ axios.defaults.baseURL = "https://ws.audioscrobbler.com";
 type Params =
   | TAlbumGetInfoParams
   | TAlbumGetTopTagsParams
+  | TArtistGetInfoParams
+  | TArtistGetTopAlbumsParams
+  | TArtistGetTopTagsParams
   | ITagGetInfoParams
   | ITagGetSimilarParams
   | ITagGetTopAlbumsParams
@@ -81,6 +94,9 @@ type Params =
 type Response =
   | IAlbumGetInfo
   | IAlbumGetTopTags
+  | IArtistGetInfo
+  | IArtistGetTopAlbums
+  | IArtistGetTopTags
   | ITagGetInfo
   | ITagGetSimilar
   | ITagGetTopAlbums

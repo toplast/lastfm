@@ -87,6 +87,12 @@ export interface IImage {
   "#text": string;
 }
 
+export interface ILink {
+  rel: string;
+  href: string;
+  "#text": string;
+}
+
 interface IRegistered {
   unixtime: string;
   "#text": string;
