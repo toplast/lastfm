@@ -72,7 +72,7 @@ export interface IChart {
   "#text": string;
 }
 
-interface IStreamable {
+export interface IStreamable {
   fulltrack: string;
   "#text": string;
 }
@@ -83,7 +83,13 @@ interface IDate {
 }
 
 export interface IImage {
-  size: "small" | "medium" | "large" | "extralarge";
+  size: "small" | "medium" | "large" | "extralarge" | "mega" | "";
+  "#text": string;
+}
+
+export interface ILink {
+  rel: string;
+  href: string;
   "#text": string;
 }
 

@@ -1,4 +1,10 @@
 /* eslint-disable @typescript-eslint/camelcase */
+import { IAlbumGetInfo, IAlbumGetTopTags } from "../album/album.interface";
+import {
+  IArtistGetInfo,
+  IArtistGetTopAlbums,
+  IArtistGetTopTags,
+} from "../artist/artist.interface";
 import {
   ITagGetInfo,
   ITagGetSimilar,
@@ -16,6 +22,7 @@ import {
   ITagGetTopTracksParams,
   ITagGetWeeklyChartListParams,
 } from "../tag/params.interface";
+import { ITrackGetInfo, ITrackGetTopTags } from "../track/track.interface";
 import {
   IUserGetFriends,
   IUserGetInfo,
@@ -46,18 +53,39 @@ import {
   IUserGetWeeklyChartListParams,
   IUserGetWeeklyTrackChartParams,
 } from "../user/params.interface";
+import {
+  TAlbumGetInfoParams,
+  TAlbumGetTopTagsParams,
+} from "../album/params.interface";
+import {
+  TArtistGetInfoParams,
+  TArtistGetTopAlbumsParams,
+  TArtistGetTopTagsParams,
+} from "../artist/params.interface";
+import {
+  TTrackGetInfoParams,
+  TTrackGetTopTagsParams,
+} from "../track/params.interface";
+
 import RequestError from "../error/error.request";
 import axios from "axios";
 
 axios.defaults.baseURL = "https://ws.audioscrobbler.com";
 
 type Params =
+  | TAlbumGetInfoParams
+  | TAlbumGetTopTagsParams
+  | TArtistGetInfoParams
+  | TArtistGetTopAlbumsParams
+  | TArtistGetTopTagsParams
   | ITagGetInfoParams
   | ITagGetSimilarParams
   | ITagGetTopAlbumsParams
   | ITagGetTopArtistsParams
   | ITagGetTopTracksParams
   | ITagGetWeeklyChartListParams
+  | TTrackGetInfoParams
+  | TTrackGetTopTagsParams
   | IUserGetFriendsParams
   | IUserGetInfoParams
   | IUserGetLovedTracksParams
@@ -72,6 +100,11 @@ type Params =
   | IUserGetWeeklyChartListParams
   | IUserGetWeeklyTrackChartParams;
 type Response =
+  | IAlbumGetInfo
+  | IAlbumGetTopTags
+  | IArtistGetInfo
+  | IArtistGetTopAlbums
+  | IArtistGetTopTags
   | ITagGetInfo
   | ITagGetSimilar
   | ITagGetTopAlbums
@@ -79,6 +112,8 @@ type Response =
   | ITagGetTopTags
   | ITagGetTopTracks
   | ITagGetWeeklyChartList
+  | ITrackGetInfo
+  | ITrackGetTopTags
   | IUserGetFriends
   | IUserGetInfo
   | IUserGetLovedTracks

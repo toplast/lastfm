@@ -35,7 +35,7 @@
     "lint:fix": "yarn lint --fix",
     "preversion": "yarn lint",
     "version": "yarn lint:fix && git add -A src",
-    "test": "jest .",
+    "test": "jest --verbose .",
     "test:coverage": "yarn test --collectCoverage",
     "test:watch": "yarn test --watch"
   },
